@@ -3,8 +3,12 @@ const app = express();
 
 const mongoose = require('mongoose')
 
+const dotenv = require("dotenv")
+
+dotenv.config();
+
 mongoose
-    .connect('mongodb+srv://haoyangLi:519518lhyLHY~@ecommerceapiservice.kz5egej.mongodb.net/?retryWrites=true&w=majority')
+    .connect(process.env.mongoUrl)
     .then(() => console.log("DBConnection Successfull!"))
     .catch((err)=>{
         console.log(err)
